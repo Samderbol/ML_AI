@@ -5,13 +5,15 @@ from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 
 
-# 设置中文字体为 macOS 系统自带的中文字体
-plt.rcParams['font.family'] = 'Arial Unicode MS'
+# 设置字体文件路径
+font_path = "/usr/share/fonts/noto-cjk/NotoSansCJK-Bold.ttc"
 
-# 设置正常显示符号的字体
-plt.rcParams['axes.unicode_minus'] = False
+# 创建 FontProperties 对象
+font_prop = fm.FontProperties(fname=font_path)
+
 
 # 1. 数据集准备
 data = pd.read_excel("产品评价.xlsx")
@@ -43,7 +45,7 @@ import seaborn as sns
 conf_matrix = confusion_matrix(y_test, y_pred)
 plt.figure(figsize=(6, 4))
 sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', cbar=False)
-plt.xlabel('预测值')
-plt.ylabel('真实值')
-plt.title('混淆矩阵')
+plt.xlabel('预测值', fontproperties=font_prop)
+plt.ylabel('真实值', fontproperties=font_prop)
+plt.title('混淆矩阵', fontproperties=font_prop)
 plt.show()

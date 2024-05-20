@@ -6,7 +6,6 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 
-
 # 设置中文字体为 macOS 系统自带的中文字体
 plt.rcParams['font.family'] = 'Arial Unicode MS'
 
